@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link>
+    <meta charset="UTF-8" name="viewport" content="width=dev-widy , initial-scale=1,user-scalable=no">
+    <title>何玉龙课程设计</title>
+    <link rel="icon" href="Imagss/icon.png">
+    <link rel="stylesheet" href="XingshangStyle.css">
+    <script type="text/javascript" src="Const.js"></script>
+
+    <style>
+       article{
+           margin: 20px;
+       }
+        h3{
+            color: red;
+            font-size: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dddddd;
+        }
+        h4{
+            font-size: 14px;
+        }
+        p{
+            font-size: 12px;
+            text-indent: 2em;
+            line-height: 2em;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<header>
+    <span>平台风采</span>
+</header>
+
+<section class="XS_second_secton">
+    <img src="imagss/banner4.png">
+</section>
+</head>
+
+<article>
+    <h3 id="title"></h3>
+    <h4 id="subTitle"></h4>
+    <p id="info"></p>
+    <script>
+        var article = JSON.parse(window.localStorage.getItem("platform_article"));
+        var a = function (article) {
+            var title_tag = document.getElementById("title");
+            var subTitle_tag = document.getElementById("subTitle");
+            var info_tag = document.getElementById("info");
+            title_tag.innerHTML = article.title;
+            subTitle_tag.innerHTML = article.subTitle;
+            info_tag.innerHTML = article.info;
+        }
+        if(article){
+            article = article.data;
+            a(article);
+        } else {
+            var url = "/aboutus";
+            var permeters = "";
+            get_data("get",url,permeters,function (responseData1,responseData2) {
+                a(responseData1);
+                window.localStorage.setItem("platform_article",responseData2);
+            } )
+        }
+    </script>
+</article>
+
+
+<footer>
+    <a href="XingshangServices.html"> <img src="imagss/nav10.png"> <span >工程案例</span></a>
+    <a href="QIyeXiangmu.html"> <img src="imagss/nav20.png"> <span>企业项目</span></a>
+    <a href="FuwuLiucheng.html"> <img src="imagss/nav30.png"> <span>服务流程</span></a>
+    <a href="PingtaiFengcai.html" ><img src="imagss/nav41.png"> <span STYLE="color: red">平台风采</span></a>
+    <a href="AdminYa.html" ><img src="imagss/nav50.png"> <span>个人中心</span></a>
+</footer>
+
+</body>
+</html>

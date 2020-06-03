@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link>
+    <meta charset="UTF-8" name="viewport" content="width=dev-widy , initial-scale=1,user-scalable=no">
+    <title>何玉龙课程设计</title>
+    <link rel="icon" href="Imagss/icon.png">
+    <link rel="stylesheet" href="XingshangStyle.css">
+
+    <style>
+       .AM_2div img{
+           margin-top: 50px;
+       }
+        .AM_2div {
+            text-align: center;
+        }
+        .IDX_div1{
+            width: 90%;
+            margin: 0 auto;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            background: white;
+            margin-top: 30px;
+            height: 100px;
+        }
+
+        .IDX_div1 div{
+            height: 50px;
+        }
+        .IDX_div1 span{
+            padding-left: 15px;
+            font-size: 20px;
+            line-height: 50px;
+        }
+
+        input{
+            outline: medium; background-color: transparent;border: 0;
+        }
+        .IDX_div11{
+            border: 1px solid #dddddd;
+        }
+        .IDX_div2{
+            height: 50px;
+            background-color: rgb(36,92,161);
+            width: 90%;
+            margin: 0 auto;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .IDX_div2 input{
+            line-height: 50px;
+            font-size: 20px;
+            color: white;
+        }
+
+
+
+
+    </style>
+
+</head>
+<body>
+<header>
+    <span>登录</span>
+</header>
+
+
+    <div class="AM_2div">
+        <img src="Imagss/head.png">
+    </div>
+
+<script type="text/javascript" src="Const.js" ></script>
+
+
+
+
+
+
+<fome>
+    <div class="IDX_div1">
+        <div class="IDX_div11">
+            <span>账户名：</span>
+            <input id="userName" type="text" value="admin"><br>
+        </div>
+     <div>
+         <span>密码：</span>
+         <input id="passWord" type="password" value="admin"><br>
+     </div>
+    </div>
+    <div class="IDX_div2">
+        <input id="I_button" type="button" value="登录">
+    </div>
+
+
+</fome>
+
+<script>
+
+    var button = document.getElementById("I_button");
+    button.onclick = function () {
+        var account = document.getElementById("userName").value;
+        var pwd = document.getElementById("passWord").value;
+        var parameters = "username=" + account + "&pwd=" + pwd;
+        var url = "/login";
+       get_data("post" , url , parameters , function (responseData) {
+            if (responseData == "登录成功"){
+                location.href = "XingshangServices.html";
+            } else {
+                alert(responseData);
+            }
+        });
+    }
+</script>
+
+
+<footer>
+    <a href="XingshangServices.html"> <img src="imagss/nav10.png"> <span>工程案例</span></a>
+    <a href="QIyeXiangmu.html"> <img src="imagss/nav20.png"> <span>企业项目</span></a>
+    <a href="FuwuLiucheng.html"> <img src="imagss/nav30.png"> <span>服务流程</span></a>
+    <a href="PingtaiFengcai.html" ><img src="imagss/nav40.png"> <span>平台风采</span></a>
+    <a href="AdminYa.html" ><img src="imagss/nav51.png"> <span style="color: red">个人中心</span></a>
+</footer>
+
+
+</body>
+</html>
